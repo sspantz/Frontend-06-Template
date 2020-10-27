@@ -93,3 +93,16 @@
   - React Native
   - Vue Native
   - Flutter
+
+### 编程训练
+- 数据结构+算法
+- 语言相关
+
+### TicTacToe
+
+规则:
+  - 棋盘 3X3方格
+  - 双方各持有O和X
+  - 双方交替落子
+  - 率先三字连线一方获胜
+
