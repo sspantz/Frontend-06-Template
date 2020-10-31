@@ -6,7 +6,25 @@
   <title>TicTacToe</title>
 </head>
 <body>
-  <div class="board"></div>
+  <style>
+    h1 {
+      color: #222;
+    }
+
+    .cell {
+      width: 100px;
+      height: 100px;
+      background-color: #03cea4;
+      display: inline-block;
+      border: solid 1px white;
+      vertical-align: middle;
+
+      line-height: 100px;
+      font-size: 50px;
+      text-align: center;
+    }
+  </style>
+  <div id="board"></div>
   <script src='./tictactoe.js'></script>
 </body>
 </html>
