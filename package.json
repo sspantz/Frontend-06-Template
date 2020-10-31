@@ -1,0 +1,22 @@
+{
+  "name": "frontend-bootcamp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sspantz/Frontend-06-Template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sspantz/Frontend-06-Template/issues"
+  },
+  "homepage": "https://github.com/sspantz/Frontend-06-Template#readme",
+  "devDependencies": {
+    "prettier": "^2.1.2"
+  }
+}
