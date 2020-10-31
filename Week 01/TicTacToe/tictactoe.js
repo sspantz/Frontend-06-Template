@@ -46,8 +46,12 @@ function move(i) {
   color = switchColor();
   show(pattern);
 
+  if (willWin(pattern, color)) {
+    console.log(color === 2 ? "😆 will win." : "😡 will win.");
+  }
+
   color = switchColor();
-  if (check()) {
+  if (check(pattern, color)) {
     gameSet = true;
     alert(color === 2 ? `😆 is winner!` : `😡 is winner!`);
   }
@@ -58,7 +62,22 @@ function switchColor() {
   return 3 - color;
 }
 
-function check() {
+function willWin(pattern, color) {
+  for (let i = 0; i < 9; i++) {
+    if (pattern[i]) continue;
+    let temp = clone(pattern);
+    temp[i] = color;
+    if (check(temp, color)) {
+      return true;
+    }
+  }
+}
+
+function clone(obj) {
+  return Object.create(obj);
+}
+
+function check(pattern, color) {
   // 8 situations
   if (pattern[0] && pattern[0] === pattern[1] && pattern[1] === pattern[2])
     return true;
