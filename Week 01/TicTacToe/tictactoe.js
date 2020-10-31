@@ -22,6 +22,7 @@ function show(pattern) {
 }
 
 function move(i) {
+  if (pattern[i] !== 0) return; // prevent duplicate movement
   pattern[i] = color;
   color = switchColor();
   show(pattern);
