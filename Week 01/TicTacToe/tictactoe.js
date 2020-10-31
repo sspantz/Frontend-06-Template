@@ -71,6 +71,7 @@ function willWin(pattern, color) {
       return true;
     }
   }
+  return null;
 }
 
 function clone(obj) {
@@ -98,4 +99,34 @@ function check(pattern, color) {
   else return false;
 }
 
+function bestChoice(pattern, color) {
+  let p;
+  if ((p = willWin(pattern, color))) {
+    return {
+      point: p,
+      result: 1,
+    };
+  }
+
+  let result = -2;
+  let point = null;
+  for (let i = 0; i < 9; i++) {
+    if (pattern[i]) continue;
+    let temp = clone(pattern);
+    temp[i] = color;
+    let r = bestChoice(temp, 3 - color).result;
+
+    if (-r > result) {
+      result = -r;
+      point = [i];
+    }
+  }
+
+  return {
+    point: point,
+    result: point ? result : 0,
+  };
+}
+
 show(pattern);
+console.log(bestChoice(pattern, color));
