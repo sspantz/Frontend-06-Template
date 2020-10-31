@@ -1,3 +1,6 @@
+// 😆 the one never lose
+// 😡 the one never win
+
 let pattern = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 let color = 2;
