@@ -4,6 +4,8 @@
 let pattern = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 let color = 2;
+
+let gameSet = false;
 function show(pattern) {
   let board = document.getElementById("board");
   board.innerHTML = "";
@@ -33,18 +35,20 @@ function show(pattern) {
 }
 
 function reset() {
+  gameSet = false;
   color = 2;
   pattern = [0, 0, 0, 0, 0, 0, 0, 0, 0];
   return pattern;
 }
 function move(i) {
-  if (pattern[i] !== 0) return; // prevent duplicate movement
+  if (pattern[i] !== 0 || gameSet === true) return; // prevent duplicate movement
   pattern[i] = color;
   color = switchColor();
   show(pattern);
 
   color = switchColor();
   if (check()) {
+    gameSet = true;
     alert(color === 2 ? `😆 is winer!` : `😡 is winner!`);
   }
   color = switchColor();
