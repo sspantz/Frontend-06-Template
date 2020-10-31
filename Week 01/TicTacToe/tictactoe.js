@@ -52,7 +52,7 @@ function check() {
     return true;
   if (pattern[2] && pattern[2] === pattern[5] && pattern[5] === pattern[8])
     return true;
-  if (pattern[0] && pattern[0] === pattern[4] && pattern[4] === pattern[7])
+  if (pattern[0] && pattern[0] === pattern[4] && pattern[4] === pattern[8])
     return true;
   if (pattern[2] && pattern[2] === pattern[4] && pattern[4] === pattern[6])
     return true;
