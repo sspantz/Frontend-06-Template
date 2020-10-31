@@ -1,7 +1,7 @@
 ## Week 1:
 Homework:
 1. Traffic Light
-   - [github](https://github.com/sspantz/Frontend-06-Template/tree/main/Week%2001/ex-async-programming)
+   - [github](https://github.com/sspantz/Frontend-06-Template/tree/main/Week%2001/TrafficLight)
    - [codepen](https://codepen.io/sspantz/pen/yLJKwPy)
 2. TicTacToe
    - [github](https://github.com/sspantz/Frontend-06-Template/tree/main/Week%2001/TicTacToe)
