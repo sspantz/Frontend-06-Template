@@ -8,6 +8,8 @@ Homework:
    - [codepen](https://codepen.io/sspantz/pen/VwjXRWr)
 3. [Week 1 Summary](https://github.com/sspantz/Frontend-06-Template/blob/main/Week%2001/NOTE.md)
 
+4. Gobang
+
 # 极客大学「前端进阶训练营-第6期」作业提交仓库
 
 
