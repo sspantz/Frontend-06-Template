@@ -18,7 +18,7 @@ function show(pattern) {
     let cell = document.createElement("div");
     cell.classList.add("cell");
     cell.innerText = pattern[i] === 2 ? "😆" : pattern[i] === 1 ? "😡" : "";
-    cell.addEventListener("click", () => move(i));
+    cell.addEventListener("click", () => userMove(i));
     board.appendChild(cell);
     if (i % 3 === 2) {
       board.appendChild(document.createElement("br"));
@@ -40,11 +40,13 @@ function reset() {
   pattern = [0, 0, 0, 0, 0, 0, 0, 0, 0];
   return pattern;
 }
-function move(i) {
+function userMove(i) {
   if (pattern[i] !== 0 || gameSet === true) return; // prevent duplicate movement
   pattern[i] = color;
   color = switchColor();
   show(pattern);
+
+  computerMove(i);
 
   if (willWin(pattern, color)) {
     console.log(color === 2 ? "😆 will win." : "😡 will win.");
@@ -56,6 +58,19 @@ function move(i) {
     alert(color === 2 ? `😆 is winner!` : `😡 is winner!`);
   }
   color = switchColor();
+}
+
+function computerMove() {
+  let choice = bestChoice(pattern, color);
+  if (choice.point) {
+    pattern[choice.point[0]] = color;
+  }
+  if (check(pattern, color)) {
+    gameSet = true;
+    alert(color === 2 ? `😆 is winner!` : `😡 is winner!`);
+  }
+  color = switchColor();
+  show(pattern);
 }
 
 function switchColor() {
