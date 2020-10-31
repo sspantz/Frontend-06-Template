@@ -19,8 +19,21 @@ function show(pattern) {
       board.appendChild(document.createElement("br"));
     }
   }
+
+  let reset = document.createElement("div");
+  reset.id = "reset";
+  reset.innerText = "RESET";
+  board.appendChild(reset);
+  reset.addEventListener("click", () => {
+    show(this.reset());
+  });
 }
 
+function reset() {
+  color = 2;
+  pattern = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  return pattern;
+}
 function move(i) {
   if (pattern[i] !== 0) return; // prevent duplicate movement
   pattern[i] = color;
