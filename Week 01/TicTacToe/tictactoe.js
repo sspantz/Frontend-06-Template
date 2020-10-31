@@ -49,7 +49,7 @@ function move(i) {
   color = switchColor();
   if (check()) {
     gameSet = true;
-    alert(color === 2 ? `😆 is winer!` : `😡 is winner!`);
+    alert(color === 2 ? `😆 is winner!` : `😡 is winner!`);
   }
   color = switchColor();
 }
