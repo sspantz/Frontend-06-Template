@@ -144,4 +144,3 @@ function bestChoice(pattern, color) {
 }
 
 show(pattern);
-console.log(bestChoice(pattern, color));
