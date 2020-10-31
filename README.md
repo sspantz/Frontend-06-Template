@@ -9,6 +9,7 @@ Homework:
 3. [Week 1 Summary](https://github.com/sspantz/Frontend-06-Template/blob/main/Week%2001/NOTE.md)
 
 4. Gobang
+5. [OOP](https://github.com/sspantz/Articles/issues/1)
 
 # 极客大学「前端进阶训练营-第6期」作业提交仓库
 
