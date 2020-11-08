@@ -88,18 +88,19 @@
         });
       }
 
-      async function path(map, start, end) {
-        var queue = [start];
+      async function findPath(map, start, end) {
+        let table = Object.create(map); // store the original map
+        let queue = [start];
 
-        async function insert(x, y) {
+        async function insert(x, y, pre) {
           // boundary check
           if (x < 0 || x >= 100 || y < 0 || y >= 100) return;
           // existence check
-          if (map[y * 100 + x]) return;
+          if (table[y * 100 + x]) return;
 
-          await sleep(20);
+          // await sleep(0);
           container.children[y * 100 + x].style.backgroundColor = "#3772FF";
-          map[y * 100 + x] = 2;
+          table[y * 100 + x] = pre;
           // need for the bfs
           queue.push([x, y]);
         }
@@ -107,14 +108,30 @@
         while (queue.length) {
           let [x, y] = queue.shift();
           if (x === end[0] && y === end[1]) {
-            return true;
+            let path = [];
+
+            while (x !== start[0] || y !== start[1]) {
+              path.push(map[y * 100 + x]);
+              [x, y] = table[y * 100 + x];
+              await sleep(20);
+              container.children[y * 100 + x].style.backgroundColor = "#DF2935";
+            }
+
+            return path;
           }
 
-          await insert(x - 1, y); // top
-          await insert(x, y + 1); // right
-          await insert(x + 1, y); // bottom
-          await insert(x, y - 1); // left
+          await insert(x - 1, y, [x, y]); // top
+          await insert(x, y + 1, [x, y]); // right
+          await insert(x + 1, y, [x, y]); // bottom
+          await insert(x, y - 1, [x, y]); // left
+
+          await insert(x - 1, y - 1, [x, y]); // top-left
+          await insert(x + 1, y - 1, [x, y]); // top-right
+          await insert(x + 1, y + 1, [x, y]); // bottom-right
+          await insert(x - 1, y + 1, [x, y]); // bottom-left
         }
+
+        return null;
       }
     </script>
   </body>
