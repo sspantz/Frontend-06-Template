@@ -88,9 +88,46 @@
         });
       }
 
+      // Sorted
+      class Sorted {
+        constructor(data, compare) {
+          this.data = data.slice();
+          this.compare = compare || ((a, b) => a - b);
+        }
+        get length() {
+          return this.data.length;
+        }
+        take() {
+          if (!this.data.length) return;
+
+          let minIndex = 0,
+            min = this.data[minIndex],
+            len = this.data.length;
+
+          for (let i = 0; i < len; i++) {
+            if (this.compare(this.data[i], min) < 0) {
+              min = this.data[i];
+              minIndex = i;
+            }
+          }
+          // O(1) operation for deleting an element
+          this.data[minIndex] = this.data[len - 1];
+          this.data.pop();
+          return min;
+        }
+        give(v) {
+          this.data.push(v);
+        }
+      }
+
       async function findPath(map, start, end) {
         let table = Object.create(map); // store the original map
-        let queue = [start];
+        let queue = new Sorted([start], (a, b) => distance(a) - distance(b));
+
+        function distance(point) {
+          // without sqrt do not affect the judgement of compare function
+          return (point[0] - end[0]) ** 2 + (point[1] - end[1]) ** 2;
+        }
 
         async function insert(x, y, pre) {
           // boundary check
@@ -102,11 +139,11 @@
           container.children[y * 100 + x].style.backgroundColor = "#3772FF";
           table[y * 100 + x] = pre;
           // need for the bfs
-          queue.push([x, y]);
+          queue.give([x, y]);
         }
 
         while (queue.length) {
-          let [x, y] = queue.shift();
+          let [x, y] = queue.take();
           if (x === end[0] && y === end[1]) {
             let path = [];
 
