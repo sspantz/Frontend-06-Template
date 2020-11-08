@@ -81,6 +81,34 @@
 
       document.addEventListener("mouseup", () => (mousedown = false));
       document.addEventListener("contextmenu", e => e.preventDefault());
+
+      function path(map, start, end) {
+        var queue = [start];
+
+        function insert(x, y) {
+          // boundary check
+          if (x < 0 || x >= 100 || y < 0 || y >= 100) return;
+          // existence check
+          if (map[y * 100 + x]) return;
+
+          map[y * 100 + x] = 2;
+          // need for the bfs
+          queue.push([x, y]);
+        }
+
+        while (queue.length) {
+          let [x, y] = queue.shift();
+          console.log(x, y);
+          if (x === end[0] && y === end[1]) {
+            return true;
+          }
+
+          insert(x - 1, y); // top
+          insert(x, y + 1); // right
+          insert(x + 1, y); // bottom
+          insert(x, y - 1); // left
+        }
+      }
     </script>
   </body>
 </html>
