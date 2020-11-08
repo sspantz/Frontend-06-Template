@@ -1,0 +1,1 @@
+Try to upload to codepen while localStorage is prohibited on codepen.io
