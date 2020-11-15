@@ -52,16 +52,124 @@ function* tokenize(source) {
   }
 }
 
+let source = [];
+
 for (let token of tokenize("1024 * 12 - 123 + 47")) {
-  console.log(token);
+  if (token.type !== "Whitespace" && token.type !== "LineTerminator")
+    source.push(token);
 }
 
-function Expression(tokens) {}
+function Expression(tokens) {
+  if (
+    source[0].type === "AdditiveExpression" &&
+    source[1] &&
+    source[1].type === "EOF"
+  ) {
+    let node = {
+      type: "Expression",
+      children: [source.shift(), source[0].shift()],
+    };
+    source.unshift(node);
+    return node;
+  }
+  AdditiveExpression(source);
+  return Expression(source);
+}
 
-function AdditiveExpression(source) {}
+function AdditiveExpression(source) {
+  if (source[0].type === "MultiplicativeExpression") {
+    let node = {
+      type: "AdditiveExpression",
+      children: [source[0]],
+    };
+    source[0] = node;
+    return AdditiveExpression(source);
+  }
+  if (
+    source[0].type === "AdditiveExpression" &&
+    source[1] &&
+    source[1].type === "+"
+  ) {
+    let node = {
+      type: "AdditiveExpression",
+      operator: "+",
+      children: [],
+    };
+    node.children.push(source.shift());
+    node.children.push(source.shift());
+    MultiplicativeExpression(source);
+    node.children.push(source.shift());
+    source.unshift(node);
+    return AdditiveExpression(source);
+  }
+
+  if (
+    source[0].type === "AdditiveExpression" &&
+    source[1] &&
+    source[1].type === "-"
+  ) {
+    let node = {
+      type: "AdditiveExpression",
+      operator: "-",
+      children: [],
+    };
+    node.children.push(source.shift());
+    node.children.push(source.shift());
+    MultiplicativeExpression(source);
+    node.children.push(source.shift());
+    source.unshift(node);
+    return AdditiveExpression(source);
+  }
+  if (source[0].type === "AdditiveExpression") return source[0];
+  MultiplicativeExpression(source);
+  return AdditiveExpression(source);
+}
 
 function MultiplicativeExpression(source) {
-  console.log(source);
+  if (source[0].type === "Number") {
+    let node = {
+      type: "MultiplicativeExpression",
+      children: [source[0]],
+    };
+    source[0] = node;
+    return MultiplicativeExpression(source);
+  }
+  if (
+    source[0].type === "MultiplicativeExpression" &&
+    source[1] &&
+    source[1].type === "*"
+  ) {
+    let node = {
+      type: "MultiplicativeExpression",
+      operator: "*",
+      children: [],
+    };
+    node.children.push(source.shift());
+    node.children.push(source.shift());
+    node.children.push(source.shift());
+    source.unshift(node);
+    return MultiplicativeExpression(source);
+  }
+
+  if (
+    source[0].type === "MultiplicativeExpression" &&
+    source[1] &&
+    source[1].type === "/"
+  ) {
+    let node = {
+      type: "MultiplicativeExpression",
+      operator: "/",
+      children: [],
+    };
+    node.children.push(source.shift());
+    node.children.push(source.shift());
+    node.children.push(source.shift());
+    source.unshift(node);
+    return MultiplicativeExpression(source);
+  }
+  if (source[0].type === "MultiplicativeExpression") return source[0];
+
+  return MultiplicativeExpression(source);
 }
 
-MultiplicativeExpression("82 * 36 - 3");
+console.log(AdditiveExpression(source));
