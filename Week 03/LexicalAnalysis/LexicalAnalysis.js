@@ -55,3 +55,13 @@ function* tokenize(source) {
 for (let token of tokenize("1024 * 12 - 123 + 47")) {
   console.log(token);
 }
+
+function Expression(tokens) {}
+
+function AdditiveExpression(source) {}
+
+function MultiplicativeExpression(source) {
+  console.log(source);
+}
+
+MultiplicativeExpression("82 * 36 - 3");
