@@ -1,3 +1,4 @@
+<input id="r" />
 <script>
   let object = {
     a: { c: 4 },
@@ -12,7 +13,7 @@
   let po = reactive(object);
 
   effect(() => {
-    console.log(po.a.c);
+    document.getElementById("r").value = po.a.c;
   });
 
   function effect(callback) {
