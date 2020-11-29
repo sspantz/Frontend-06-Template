@@ -1,26 +1,27 @@
 <script>
   let object = {
-    a: 0,
+    a: { c: 4 },
     b: 1,
   };
 
   let callbacks = new Map();
+  let reactivities = new Map();
 
-  let usedReactives = [];
+  let useReactivities = [];
 
   let po = reactive(object);
 
   effect(() => {
-    console.log(po.a);
+    console.log(po.a.c);
   });
 
   function effect(callback) {
     // callbacks.push(callback);
-    usedReactives = [];
+    useReactivities = [];
     callback();
-    console.log(usedReactives);
+    console.log(useReactivities);
 
-    for (let reactivity of usedReactives) {
+    for (let reactivity of useReactivities) {
       if (!callbacks.has(reactivity[0])) {
         callbacks.set(reactivity[0], new Map());
       }
@@ -32,7 +33,8 @@
   }
 
   function reactive(object) {
-    return new Proxy(object, {
+    if (reactivities.has(object)) return reactivities.get(object);
+    let proxy = new Proxy(object, {
       set(obj, prop, val) {
         obj[prop] = val;
         if (callbacks.get(obj))
@@ -44,9 +46,13 @@
         return obj[prop];
       },
       get(obj, prop) {
-        usedReactives.push([obj, prop]);
+        useReactivities.push([obj, prop]);
+        if (typeof obj[prop] === "object") return reactive(obj[prop]);
+        return obj[prop];
         return obj[prop];
       },
     });
+    reactivities.set(object, proxy);
+    return proxy;
   }
 </script>
