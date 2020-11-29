@@ -9,4 +9,15 @@
       console.log(obj, prop, val);
     },
   });
+
+  function reactive(object) {
+    return new Proxy(object, {
+      set(obj, prop, val) {
+        console.log(obj, prop, val);
+      },
+      get(obj, prop) {
+        console.log(obj, prop);
+      },
+    });
+  }
 </script>
