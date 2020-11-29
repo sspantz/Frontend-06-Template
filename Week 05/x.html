@@ -16,6 +16,10 @@
     document.getElementById("r").value = po.a.c;
   });
 
+  document
+    .getElementById("r")
+    .addEventListener("input", e => (po.a.c = e.target.value));
+
   function effect(callback) {
     // callbacks.push(callback);
     useReactivities = [];
