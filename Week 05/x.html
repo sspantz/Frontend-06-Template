@@ -6,6 +6,8 @@
 
   let callback = [];
 
+  let usedReactives = [];
+
   let po = reactive(object);
 
   effect(() => {
@@ -13,7 +15,10 @@
   });
 
   function effect(callback) {
-    callbacks.push(callback);
+    // callbacks.push(callback);
+    usedReactives = [];
+    callback();
+    console.log(usedReactives);
   }
 
   function reactive(object) {
@@ -27,7 +32,7 @@
         return obj[prop];
       },
       get(obj, prop) {
-        console.log(obj, prop);
+        usedReactives.push([obj, prop]);
         return obj[prop];
       },
     });
