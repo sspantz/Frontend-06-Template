@@ -24,6 +24,68 @@
   - 命令型语言
     - C, C++, Java, JavaScript
 
+
+## Category of Languages
+
+### By Usage
+
+#### Data Description Language
+- JSON
+- HTML
+- XAML
+- SQL
+- CSS
+- MARKDOWN
+
+#### Programming Language
+- C
+- C++
+- Java
+- Python
+- Ruby
+- Rust
+- Go
+- Scheme
+- Perl
+- Lisp
+- PHP
+- VB
+- R
+- Assembly
+- Swift
+- Objective-C
+- Dart
+- Fortran
+- Julia
+
+### By Presentation
+
+#### Declarative
+- JSON
+- HTML
+- XAML
+- SQL
+- CSS
+- Markdown
+- Lisp
+- Clojure
+- Haskell
+
+#### Imperative
+- C
+- C++
+- Java
+- C#
+- PHP
+- VB
+- R
+- Assembly
+- Swift
+- Objective-C
+- Dart
+- Fortran
+- Julia
+
 ### 编程语言的性质
 
 - 图灵完备性：在可计算性理论里，如果一系列操作数据的规则（如指令集、编程语言、细胞自动机）可以用来模拟单带图灵机，那么它是图灵完全的。这个词源于引入图灵机概念的数学家艾伦·图灵。虽然图灵机会受到储存能力的物理限制，图灵完全性通常指“具有无限存储能力的通用物理机器或编程语言”。
