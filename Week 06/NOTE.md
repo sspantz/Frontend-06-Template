@@ -131,3 +131,27 @@
 - Unicode
 - UTF-8
 - UTF-16
+
+### Object
+
+#### The 3 Elements of Object
+- Identifier
+- State
+- Behaviour
+
+#### Object -> Class
+
+> 分类
+- 归类 -> 多继承
+- 分类 -> 单继承
+
+> 原型 -> javascript
+
+> Object Exercise: Dog bit someone
+```js
+class Person {
+  hurt(damage) {/...}
+}
+```
+
+总是遵循`行为改变状态`原则
