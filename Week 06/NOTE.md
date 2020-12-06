@@ -155,3 +155,40 @@ class Person {
 ```
 
 总是遵循`行为改变状态`原则
+
+#### Prototype Chain
+
+#### Key and Value
+- Key: Symbol / Strings
+- Value: Data / Accessor -> set/get
+
+### Object API
+- {}. [] Object.defineProperty
+- Object.create / Object.setPropertyOf / Object.getPropertyOf
+- new / class / extend
+- new / function / prototype (`Deprecated`)
+
+#### Function Object
+- [[call]]
+
+#### Special Object
+- Array[[length]]
+- Object.prototype[[setPrototypeOf]]
+
+#### Host Object
+- Object[[call]]
+- Object[[construct]]
+### Special Behaviour Objects
+
+> from course comment
+
+- Array：Array 的 length 属性根据最大的下标自动发生变化。
+- Object.prototype：作为所有正常对象的默认原型，不能再给它设置原型了。
+- String：为了支持下标运算，String 的正整数属性访问会去字符串里查找。
+- Arguments：arguments 的非负整数型下标属性跟对应的变量联动。
+- 模块的 namespace 对象：特殊的地方非常多，跟一般对象完全不一样，尽量只用于 import 吧。
+- 类型数组和数组缓冲区：跟内存块相关联，下标运算比较特殊。
+- bind 后的 function：跟原来的函数相关联。
+- Function: 具有方法和执行能力的对象。
+- Map: 引用地址为key的对象。
+- Set: 自动去重的Array对象集合。
