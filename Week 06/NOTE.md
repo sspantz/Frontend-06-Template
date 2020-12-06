@@ -121,3 +121,13 @@
 
 - 泛型
   - 协变与逆变： https://jkchao.github.io/typescript-book-chinese/tips/covarianceAndContravariance.html
+
+
+
+### Number
+
+### String
+- ASCII
+- Unicode
+- UTF-8
+- UTF-16
