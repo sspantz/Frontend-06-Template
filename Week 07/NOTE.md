@@ -143,3 +143,55 @@
 - statement/declaration(completion record)
 - expression(reference)
 - literal/variable/this
+
+### 事件循环
+
+获取代码 ---> 执行代码 ---> 等待 ---> 获取代码 ....
+
+### 函数调用
+
+函数调用会形成执行上下文栈（Execution Context Stack），而栈里面的单元是执行上下文（Execution Context）。而正在跑的栈叫做执行中执行上下文（Running Execution Context）。
+
+【当前正在跑的语句就会在Running Execution Context中获取一切信息。而闭包，就在这个单元里。这也解释了我之前的疑问，a文件通过import引入b文件，在b文件里访问不到a文件的变量，我还以为
+
+可以通过闭包访问，但是是不行的。只有在同一份js文件里或通过脚本引入不同文件的才可以。】其实【而闭包，就在这个单元里】不对，闭包在环境记录里面体现
+
+### Execution Context
+
+* code evaluation state（用于async和Generator的，保存代码执行到哪的信息）
+* Function
+* Script Or Module（要么是脚本，要么是Module）
+* Generator
+* Realm
+* LexicalEnvironment
+    * this
+    * new Target
+    * super
+    * 变量
+* VariableEnvironment
+    * var
+
+### Environment Record
+
+* Declarative Environment Records
+    * Function Environment Records
+    * module Environment Records
+* Global Environment Records
+* Object Environment Records
+
+### Function-Closure
+
+每一个函数都会生成一个闭包
+
+```js
+// Example
+    var y = 2
+    function foo () {console.log(y)}
+    export foo
+
+Function:foo
+    Environment Record(定义时所在的):
+            y:2
+    Code:
+           console.log(y)
+```
