@@ -67,3 +67,41 @@
   - toPrimitive
   - toString vs valueOf
   - Symbol.toPrimitive
+
+## Statement
+- Grammar
+- Runtime
+  - Completion Record
+    - [[type]]: normal, break, continue, return, throw
+    - [[value]]: primitive type
+    - [[target]]: label
+  - Lexical Environment
+- Simple Statement
+  - ExpressionStatement
+  - EmptyStatement
+  - DebuggerStatement
+  - ThrowStatement
+  - ContinueStatement
+  - BreakStatement
+  - ReturnStatement
+- Compound Statement
+  - BlockStatement
+    - [[type]]: normal
+    - [[value]]: unknown
+    - [[target]]: unknown
+  - IfStatement
+  - SwitchStatement(not recommended)
+  - IterationStatement
+  - WithStatement(not recommended)
+  - LabelledStatement
+  - TryStatement
+    - [[type]]: return
+    - [[value]]: unknown
+    - [[target]]: label
+- Iteration
+  - while
+  - do while
+  - for
+  - for ... in
+  - for ... of
+  - for await ... of
