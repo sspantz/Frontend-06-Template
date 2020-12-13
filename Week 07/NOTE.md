@@ -49,3 +49,21 @@
     - ||
   - Conditional
     - ?:
+
+
+## Type Convertion
+
+- `==`
+
+- Boxing
+  | Type    | Object                  | Value       |
+  | ------- | ----------------------- | ----------- |
+  | Number  | new Number(1)           | 1           |
+  | String  | new String("a")         | "a"         |
+  | Boolean | new Boolean(true)       | true        |
+  | Symbol  | new Object(Symbol("a")) | Symbol("a") |
+
+- Unboxing
+  - toPrimitive
+  - toString vs valueOf
+  - Symbol.toPrimitive
