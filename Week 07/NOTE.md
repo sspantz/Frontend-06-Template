@@ -105,3 +105,22 @@
   - for ... in
   - for ... of
   - for await ... of
+
+## Declaration
+- FunctionDeclaration
+- GeneratorDeclaration
+- AsyncFunctionDeclaration
+- AsyncGeneratorDeclaration
+- VariableStatement
+- ClassDeclaration
+- LexicalDeclaration
+
+### Pre-process
+
+### Scope
+- Scope chain(From ES3.0, Deprecated)
+- ```
+  {
+    const a = 1;
+  }
+  ```
