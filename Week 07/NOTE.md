@@ -52,6 +52,16 @@
 
 
 ## Type Convertion
+|           | Number          | String            | Boolean  | Undefined | Null | Object | Symbol |
+| --------- | --------------- | ----------------- | -------- | --------- | ---- | ------ | ------ |
+| Number    | -               |                   | 0 false  | X         | X    | Boxing | X      |
+| String    | NaN for invalid | -                 | "" false | X         | X    | Boxing | X      |
+| Boolean   | true 1, false 0 | 'true', 'false'   | -        | X         | X    | Boxing | X      |
+| Undefined | NaN             | 'undefined'       | false    | -         | X    | X      | X      |
+| Null      | 0               | 'null'            | false    | X         | -    | X      | X      |
+| Object    | valueOf         | valueOf, toString | true     | X         | X    | -      | X      |
+| Symbol    | X               | -                 | true     | X         | X    | Boxing | -      |
+
 
 - `==`
 
