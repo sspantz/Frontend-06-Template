@@ -124,3 +124,12 @@
     const a = 1;
   }
   ```
+
+## JS执行粒度(runtime)
+
+- macro task
+- micro task(promise)
+- function call (execution context)
+- statement/declaration(completion record)
+- expression(reference)
+- literal/variable/this
