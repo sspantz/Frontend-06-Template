@@ -63,4 +63,45 @@ function charToDigit(char) {
   return digits[char];
 }
 
-function NumberToString(num, base) {}
+function digitToChar(digit) {
+  const chars = {
+    0: 0,
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+    10: "a",
+    11: "b",
+    12: "c",
+    13: "d",
+    14: "e",
+    15: "f",
+  };
+  return chars[digit];
+}
+
+function NumberToString(num, base) {
+  let result = "";
+  while (num > 0) {
+    const digit = num % base;
+    result = digitToChar(digit) + result;
+    num = Math.floor(num / base);
+  }
+  const prefixs = {
+    2: "0b",
+    8: "0o",
+    16: "0x",
+  };
+  const prefix = prefixs[base];
+  return prefix ? prefix + result : result;
+}
+
+console.log(NumberToString(1234, 16));
+console.log(NumberToString(1234, 8));
+console.log(NumberToString(1234, 2));
+console.log(NumberToString(1234, 10));
