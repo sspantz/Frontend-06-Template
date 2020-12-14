@@ -195,3 +195,24 @@ Function:foo
     Code:
            console.log(y)
 ```
+
+### 参考资料：
+
+阮一峰 ECMAScript 6 (ES6) 标准入门教程 第三版 Realm API
+https://www.bookstack.cn/read/es6-3rd/spilt.8.docs-proposals.md
+
+ECMAScript spec proposal for Realms API
+https://github.com/tc39/proposal-realms
+
+JS dialects with ES6 Realms
+https://gist.github.com/dherman/9146568
+
+
+ecma262/#sec-code-realms
+https://tc39.es/ecma262/#sec-code-realms
+
+Draft Proposal for SES (Secure EcmaScript)
+https://github.com/tc39/proposal-ses
+
+Realm Shim
+https://github.com/Agoric/realms-shim
