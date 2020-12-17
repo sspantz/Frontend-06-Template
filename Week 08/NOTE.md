@@ -1,5 +1,9 @@
 # 学习笔记
 
+## References:
+- `p732 - p736`, 带输出的有限状态机, Discrete Mathmatics and Its Applications, Seventh Edition, Chinese Version
+- `p64 - p70`, HTTP概况, Computer Networking -- A Top-Down Approach, Seventh Edition, Chinese Version
+
 ## Browser Principles in General
 
 ## Finite-State Machine
