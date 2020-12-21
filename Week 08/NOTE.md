@@ -8,6 +8,14 @@
 
  - URL -> bitmap
  - URL(HTTP) -> HTML(Parse) -> DOM(css computing) -> DOM with css(layout) -> DOM with position(render) -> Bitmap
+
+> Explaination
+- url通过http请求,从服务器获取资源
+- html文件通过浏览器引擎的语法解析生产Dom树
+- Dom树与css样式结合
+- 生产CSS盒模型和布局
+- Dom元素渲染
+- 页面转换成bitmap
 ## Finite-State Machine
 - 每一个状态都是一个机器
   - 在每一个机器中，可以做计算、存储、输出
@@ -20,6 +28,28 @@
 
 ## State Machine: Porcessing String with State Machine
 
+## 网络知识
+### ISO-OSI 七层模型
+* 应用层
+* 表示层
+* 会话层
+  * 上三层属于Http协议相关的内容，对应require("http")
+* 传输层
+  * 属于TCP UDP协议的内容，对应require("net")
+* 网络层
+  * 属于Internet协议内容
+* 数据链路
+* 物理层
+  * 下二层属于4G/5G/wifi内容
+
+### TCP
+TCP和UDP协议中数据以流的形式。**端口**是TCP中的重要内容，网卡通过端口将数据分发到各个应用
+
+### IP
+ip协议中数据以包的形式，通过IP地址分发内容。在node中没有直接对应的模块，需要使用C++的底层实现libnet/libcap
+
+### HTTP
+  http协议是文本型的协议，数据是以字符串的形式存在
 ## HTTP Request: Parsing Http Protocols
 
 ## HTTP Request: Prepare Server Environment
@@ -44,13 +74,13 @@
     1. Response 的 body 根据 Content-Type 有不同的结果，所以采用子 parser 来处理
     2. 以 TrunkedBodyParser 为例，用状态机来处理 body 的格式
 
-## HTTP Request: Learn Response Format and Write `send` Funtion
+## HTTP Response: Learn Response Format and Write `send` Funtion
 
-## HTTP Request: Send Request
+## HTTP Response: Send Response
 
-## HTTP Request: Parsing Responses
+## HTTP Response: Parsing Responses
 
-## HTTP Request: Parsing Response Body
+## HTTP Response: Parsing Response Body
 
 ### 其他
 - 四种常见的 **POST** 提交数据方式
