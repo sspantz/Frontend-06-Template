@@ -51,6 +51,16 @@ ip协议中数据以包的形式，通过IP地址分发内容。在node中没有
 ### HTTP
   http协议是文本型的协议，数据是以字符串的形式存在
 ## HTTP Request: Parsing Http Protocols
+- Request Line
+  - Method
+    - GET
+    - POST
+    - DELETE
+    - PUT
+  - Url
+  - Version
+- Header
+- Body
 
 ## HTTP Request: Prepare Server Environment
 
@@ -75,6 +85,12 @@ ip协议中数据以包的形式，通过IP地址分发内容。在node中没有
     2. 以 TrunkedBodyParser 为例，用状态机来处理 body 的格式
 
 ## HTTP Response: Learn Response Format and Write `send` Funtion
+- Status Line
+  - Version
+  - StatusCode
+  - Message
+- Header
+- Body
 
 ## HTTP Response: Send Response
 
@@ -88,3 +104,10 @@ ip协议中数据以包的形式，通过IP地址分发内容。在node中没有
   2. application/json
   3. application/form-data
   4. text/xml
+- 状态机的劣势
+
+在使用状态机之前必须得提前知道所有的状态，如果有新的状态加进来，之前的代码必须得重新审计以免状态切换错误
+
+- 状态机优势
+
+代码逻辑清晰，避免用一个变量来判断不同状态，这样可能导致多个地方更改这个变量引发状态错误。
