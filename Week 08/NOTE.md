@@ -52,13 +52,18 @@ ip协议中数据以包的形式，通过IP地址分发内容。在node中没有
   http协议是文本型的协议，数据是以字符串的形式存在
 ## HTTP Request: Parsing Http Protocols
 - Request Line
-  - Method
+  - [Method](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods)
     - GET
     - POST
     - DELETE
     - PUT
+    - HEAD
+    - CONNECT
+    - OPTIONS
+    - TRACE
+    - PATCH
   - Url
-  - Version
+  - Version: `HTTP/1.1`
 - Header
 - Body
 
