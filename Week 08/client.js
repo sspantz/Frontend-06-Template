@@ -24,7 +24,7 @@ class Request {
 
   send() {
     return new Promise((resolve, reject) => {
-      // ...
+      resovle();
     });
   }
 }
