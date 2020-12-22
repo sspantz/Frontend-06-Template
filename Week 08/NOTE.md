@@ -71,8 +71,11 @@ ip协议中数据以包的形式，通过IP地址分发内容。在node中没有
 - Body
 
 ## HTTP Request: Prepare Server Environment
+- [code](server.js)
+- use node library `http`
 
 ## HTTP Request: Implement A Http Request
+  - use node library `net` to implement
   - HTTP 请求
     1. 设计一个 HTTP 请求的类 `Request`
     2. content-type 是一个必要的字段
@@ -102,10 +105,13 @@ ip协议中数据以包的形式，通过IP地址分发内容。在node中没有
 
 ## HTTP Response: Send Response
 
+> complete the send function
 ## HTTP Response: Parsing Responses
 
+> complete the response parser
 ## HTTP Response: Parsing Response Body
 
+> futher implementation of response parser
 ### 其他
 - 四种常见的 **POST** 提交数据方式
   1. application/x-www-form-urlencoded
