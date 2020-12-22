@@ -22,11 +22,48 @@ class Request {
     this.headers["Content-Length"] = this.bodyText.length;
   }
 
-  send() {
-    return new Promise((resolve, reject) => {
+  send(connection) {
+    return new Promise((resovle, reject) => {
       const parser = new ResponseParser();
+      if (connection) {
+        connection.write(this.toString());
+      } else {
+        connection = net.createConnection(
+          {
+            host: this.host,
+            port: this.port,
+          },
+          () => {
+            console.log(this.toString());
+            connection.write(this.toString());
+          }
+        );
+      }
+      connection.on("data", data => {
+        console.log("data:", data.toString());
+        parser.receive(data.toString());
+        if (parser.isFinised) {
+          resolve(parse.response);
+          connection.end();
+        }
+      });
+      connection.on("error", error => {
+        console.error(error);
+        reject(error);
+        connection.end();
+      });
+
       resovle();
     });
+  }
+
+  toString() {
+    return `${this.method} ${this.path} HTTP/1.1\r
+${Object.keys(this.headers)
+  .map(k => `${k}: ${this.headers[k]}`)
+  .join("\r\n")}\r
+\r
+${this.bodyText}`;
   }
 }
 
@@ -43,7 +80,7 @@ void (async function () {
   let request = new Request({
     method: "POST",
     host: "127.0.0.1",
-    port: "8080",
+    port: 4000,
     path: "/",
     headers: {
       ["X-Foo2"]: "customed",
