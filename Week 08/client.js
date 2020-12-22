@@ -24,9 +24,20 @@ class Request {
 
   send() {
     return new Promise((resolve, reject) => {
+      const parser = new ResponseParser();
       resovle();
     });
   }
+}
+
+class ResponseParser {
+  constructor() {}
+  receive(string) {
+    for (let i = 0; i < string.length; i++) {
+      this.receiveChar(string.charAt(i));
+    }
+  }
+  receiveChar(c) {}
 }
 void (async function () {
   let request = new Request({
