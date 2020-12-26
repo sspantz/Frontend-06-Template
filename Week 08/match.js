@@ -1,7 +1,7 @@
 function match(str) {
   let state = start;
-  for (let s of str) {
-    state = state(s);
+  for (let c of str) {
+    state = state(c);
   }
   return state === end;
 }
@@ -12,13 +12,15 @@ function start(c) {
 }
 
 function end(c) {
+  // trap, won't go to any other state as if it goes here
   return end;
 }
 
 function foundA(c) {
   if (c === "b") return end;
-  else return start;
+  else return start(c);
 }
 
 console.log(match("ab"));
 console.log(match("xabj"));
+console.log(match("aabb"));
