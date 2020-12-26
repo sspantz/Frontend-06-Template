@@ -43,7 +43,9 @@ function foundA3(c) {
 
 function foundB3(c) {
   if (c === "x") return end;
-  else return start(c);
+  else if (c === "a") {
+    return foundA3;
+  } else return start(c);
 }
 
 console.log(match(""));
