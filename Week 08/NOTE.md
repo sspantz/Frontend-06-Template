@@ -31,7 +31,7 @@
 - [code](stateMachine.js)
 - [exercise 1: process 'abcabx'](match2.js)
 - [exercise 2: process 'abababx'](match3.js)
-<!-- > [ex3-unknown-pattern](match4.js) -->
+<!-- > [ex3-unknown-pattern](match4-kmp.js) -->
 ## 网络知识
 ### ISO-OSI 七层模型
 * 应用层
