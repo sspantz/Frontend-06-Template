@@ -48,3 +48,4 @@ function foundF(c) {
 }
 
 console.log(match("abcdefg"));
+console.log(match("aabbccddeeffgg"));
