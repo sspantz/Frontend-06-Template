@@ -25,10 +25,13 @@
   - 有确定的下一个状态（Moore）
   - 根据输入决定下一个状态（Mealy）
 ## State Machine: Processing String without State Machine
-> [code](findABCDEF.js)
+- [code](findABCDEF.js)
 
 ## State Machine: Porcessing String with State Machine
-> [code](stateMachine.js)
+- [code](stateMachine.js)
+- [exercise 1: process 'abcabx'](match2.js)
+- [exercise 2: process 'abababx'](match3.js)
+<!-- > [ex3-unknown-pattern](match4.js) -->
 ## 网络知识
 ### ISO-OSI 七层模型
 * 应用层
