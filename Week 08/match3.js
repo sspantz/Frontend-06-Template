@@ -44,7 +44,7 @@ function foundA3(c) {
 function foundB3(c) {
   if (c === "x") return end;
   else if (c === "a") {
-    return foundA3;
+    return foundA3(c);
   } else return start(c);
 }
 
