@@ -5,8 +5,8 @@
 - `p64 - p70`, HTTP概况, Computer Networking -- A Top-Down Approach, Seventh Edition, Chinese Version
 
 ## Browser Principles in General
-
- - URL -> bitmap
+![browsers](./browsers.png)
+ - from `URL` to `bitmap`
  - URL(HTTP) -> HTML(Parse) -> DOM(css computing) -> DOM with css(layout) -> DOM with position(render) -> Bitmap
 
 > Explaination
@@ -24,6 +24,17 @@
 - 每一个机器都知道下一个状态
   - 有确定的下一个状态（Moore）
   - 根据输入决定下一个状态（Mealy）
+- JS中的有限状态机(Mealy)
+  ```javascript
+  function state(input) {
+    // put process logic here
+    return next;
+  }
+
+  while(input) {
+    state = state(input); // return next state
+  }
+  ```
 ## State Machine: Processing String without State Machine
 - [code](findABCDEF.js)
 
@@ -34,6 +45,7 @@
 <!-- > [ex3-unknown-pattern](match4-kmp.js) -->
 ## 网络知识
 ### ISO-OSI 七层模型
+![7 layers network model](./network-model.png)
 * 应用层
 * 表示层
 * 会话层
@@ -46,6 +58,10 @@
 * 物理层
   * 下二层属于4G/5G/wifi内容
 
+> Concepts:
+- stream -> package
+- port -> ip address
+- require('net) -> libnet/libpcap
 ### TCP
 TCP和UDP协议中数据以流的形式。**端口**是TCP中的重要内容，网卡通过端口将数据分发到各个应用
 
@@ -57,6 +73,7 @@ ip协议中数据以包的形式，通过IP地址分发内容。在node中没有
 
   - http协议是文本型的协议，数据是以字符串的形式存在
 ## HTTP Request: Parsing Http Protocols
+![request](./request.png)
 - Request Line
   - [Method](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods)
     - GET
@@ -72,6 +89,7 @@ ip协议中数据以包的形式，通过IP地址分发内容。在node中没有
   - Version: `HTTP/1.1`
 - Header
 - Body
+
 
 ## HTTP Request: Prepare Server Environment
 - [code](server.js)
