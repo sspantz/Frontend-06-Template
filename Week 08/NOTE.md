@@ -99,10 +99,12 @@ ip协议中数据以包的形式，通过IP地址分发内容。在node中没有
     2. 以 TrunkedBodyParser 为例，用状态机来处理 body 的格式
 
 ## HTTP Response: Learn Response Format and Write `send` Funtion
+![response](./response.png)
 - Status Line
   - Version
   - StatusCode
   - Message
+- Whitespace Line
 - Header
 - Body
 

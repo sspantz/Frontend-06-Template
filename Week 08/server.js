@@ -7,7 +7,7 @@ http
       .on("error", error => console.log(error))
       .on("data", chunk => {
         console.log("chunk:", chunk);
-        body.push(chunk);
+        body.push(chunk.toString());
       })
       .on("end", () => {
         body = Buffer.concat(body).toString();
