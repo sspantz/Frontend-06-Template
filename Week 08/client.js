@@ -27,9 +27,22 @@ class Request {
 
   send(connection) {
     return new Promise((resolve, reject) => {
+      const parser = new ResponsePaser();
       resolve("OK");
     });
   }
+}
+
+class ResponsePaser {
+  constructor() {}
+
+  receive(string) {
+    for (let i = 0; i < string.length; i++) {
+      this.receiveChar(string.charAt(i));
+    }
+  }
+
+  receiveChar(char) {}
 }
 void (async function () {
   let request = new Request({
