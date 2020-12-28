@@ -1,3 +1,4 @@
+const { connect } = require("http2");
 const net = require("net");
 
 class Request {
@@ -6,6 +7,7 @@ class Request {
     this.method = method || "GET";
     this.host = host || 80;
     this.path = path || "/";
+    this.body = body || {};
     this.headers = headers || {};
     this.bodyText = "";
 
@@ -27,13 +29,47 @@ class Request {
 
   send(connection) {
     return new Promise((resolve, reject) => {
-      const parser = new ResponsePaser();
-      resolve("OK");
+      const parser = new ResponseParser();
+      // process
+      if (connection) {
+        connection.write(this.toString());
+      } else {
+        connection = net.createConnection(
+          {
+            host: this.host,
+            port: this.port,
+          },
+          () => {
+            connection.write(this.toString());
+          }
+        );
+        connection.on("data", data => {
+          console.log("data: ", data.toString());
+          parser.receive(data.toString());
+          if (parser.isFinished) {
+            resolve(parser.response);
+            connection.end();
+          }
+        });
+        connection.on("error", err => {
+          reject(err);
+          connection.end();
+        });
+        resolve(this.bodyText);
+      }
     });
+  }
+  toString() {
+    return `${this.method} ${this.path} HTTP/1.1\r
+${Object.keys(this.headers)
+  .map(k => `${k}: ${this.headers[k]}`)
+  .join("\r\n")}\r
+\r
+${this.bodyText}`;
   }
 }
 
-class ResponsePaser {
+class ResponseParser {
   constructor() {}
 
   receive(string) {
