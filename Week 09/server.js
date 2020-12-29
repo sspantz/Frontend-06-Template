@@ -15,4 +15,4 @@ const server = http.createServer((request, response) => {
       response.end("OK!");
     });
 });
-server.listen(port, () => console.log(`Server is running on port ${port}!`));
+server.listen(port, () => console.log(`Server is listening on port ${port}!`));
