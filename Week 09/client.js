@@ -175,7 +175,7 @@ void (async function () {
     port: 4000,
     path: "/",
     headers: {
-      ["X-Foo2"]: "customed",
+      ["X-Bar3"]: "customed",
     },
     body: {
       name: "sspantz",
