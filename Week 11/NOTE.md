@@ -45,3 +45,45 @@ div {
 background-color: blue;
 }
 ```
+
+#### Selector Syntax
+- Simple Selector
+  - *
+  - div svg|a
+  - .cls
+  - #id
+  - [attr=value]
+  - :hover
+  - ::before
+- Compound Selector
+  - <Simple Selector><Simple Selector><Simple Selector>
+  - `*` or `div` must be placed in front
+- Complicated Selector
+  - `<Compound Selector><sp><Compound Selector>`
+  - `<Compound Selector>">"<Compound Selector>`
+  - `<Compound Selector>"~"<Compound Selector>`
+  - `<Compound Selector>"+"<Compound Selector>`
+  - `<Compound Selector>"||"<Compound Selector>`
+
+  #### Pseudo Class
+  - link/behaviour
+    - :any-link
+    - :link :visited
+    - :hover
+    - :active
+    - :focus
+    - :target
+  - tree
+    - :empty
+    - :nth-child()
+    - :nth-last-child()
+    - :first-child :last-child :only-child
+  - logic
+    - :not
+    - :where :has
+
+#### Pseudo Element
+- ::before
+- ::after
+- ::first-line
+- ::first-letter
