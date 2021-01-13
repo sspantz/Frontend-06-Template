@@ -87,7 +87,7 @@ LI.red.level    /* a=0 b=2 c=1 -> specificity =  21 */
 #x34y           /* a=1 b=0 c=0 -> specificity = 100 */
 #s12:not(FOO)   /* a=1 b=0 c=1 -> specificity = 101 */
 ```
-  #### Pseudo Class
+#### Pseudo Class
   - link/behaviour
     - :any-link
     - :link :visited
@@ -108,4 +108,12 @@ LI.red.level    /* a=0 b=2 c=1 -> specificity =  21 */
 - ::before
 - ::after
 - ::first-line
-s ::first-letter
+- ::first-letter
+
+> before和after相当于添加了一个元素，可以设定排列方式伪inline，block，inline-block
+
+*first-line和first-letter的可用属性*
+
+![first-line/first-letter](./first-letter&first-line.png)
+
+> 思考题： 为什么 first-letter 可以设置 float 之类的，而 first-line 不行呢？ first-letter是在布局完成之后，确定了一段文字中的第一个文字，可以对其操作布局时性能开销小； 而first-line选中的是第一行文字，不同元素的宽度、文档的宽度和文本的字体大小会导致选中的文字内容不一样，要对其重新布局排版消耗性能大,所以first-letter 可以设置 float 之类的，而 first-line 不行。
