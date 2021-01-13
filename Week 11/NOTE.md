@@ -116,4 +116,10 @@ LI.red.level    /* a=0 b=2 c=1 -> specificity =  21 */
 
 ![first-line/first-letter](./first-letter&first-line.png)
 
-> 思考题： 为什么 first-letter 可以设置 float 之类的，而 first-line 不行呢？ first-letter是在布局完成之后，确定了一段文字中的第一个文字，可以对其操作布局时性能开销小； 而first-line选中的是第一行文字，不同元素的宽度、文档的宽度和文本的字体大小会导致选中的文字内容不一样，要对其重新布局排版消耗性能大,所以first-letter 可以设置 float 之类的，而 first-line 不行。
+> 思考题： 为什么 first-letter 可以设置 float 之类的，而 first-line 不行呢？
+
+网上搜的所谓答案:
+
+first-letter是在布局完成之后，确定了一段文字中的第一个文字，可以对其操作布局时性能开销小； 而first-line选中的是第一行文字，不同元素的宽度、文档的宽度和文本的字体大小会导致选中的文字内容不一样，要对其重新布局排版消耗性能大,所以first-letter 可以设置 float 之类的，而 first-line 不行。
+
+
