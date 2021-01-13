@@ -59,11 +59,11 @@ background-color: blue;
   - <Simple Selector><Simple Selector><Simple Selector>
   - `*` or `div` must be placed in front
 - Complicated Selector
-  - `<Combined Selector><sp><Combined Selector>`
-  - `<Combined Selector>">"<Combined Selector>`
-  - `<Combined Selector>"~"<Combined Selector>`
-  - `<Combined Selector>"+"<Combined Selector>`
-  - `<Combined Selector>"||"<Combined Selector>`
+  - `<Combined Selector><sp><Combined Selector>` (ancestor)
+  - `<Combined Selector>">"<Combined Selector>` (parent)
+  - `<Combined Selector>"~"<Combined Selector>` (adjoint)
+  - `<Combined Selector>"+"<Combined Selector>` (union)
+  - `<Combined Selector>"||"<Combined Selector>` (table column)
 
   #### Pseudo Class
   - link/behaviour
