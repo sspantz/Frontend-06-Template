@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Match</title>
+  </head>
+
+  <body>
+    <div id="id2" class="class2 cls2">
+      <div id="id1" class="class1 cls1">
+        <div id="id" class="class cls"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function match(selector, element) {
+      let selectorList = selector.split(" ");
+      let elementList = [];
+      const re = /(\#\w+)|(\.\w+)|(\w+)/g;
+
+      for (let i = 0; i < selectorList.length; i++) {
+        elementList.push(selectorList[i].match(re));
+      }
+
+      let match = true;
+      for (let i = elementList.length - 1; i >= 0; i--) {
+        if (!currentElementMatch(elementList[i], element)) {
+          match = false;
+          break;
+        }
+        element = element.parentNode;
+      }
+      return match;
+    }
+
+    function currentElementMatch(currentSelector, currentElement) {
+      let hasId = false,
+        hasClass = false,
+        hasTag = false;
+      let idMatch = false,
+        classMatch = false,
+        tagMatch = false;
+
+      for (let i = 0; i < currentSelector.length; i++) {
+        if (currentSelector[i].charAt(0) === "#") {
+          hasId = true;
+          if (currentElement.id === currentSelector[i].slice(1)) {
+            idMatch = true;
+          }
+        } else if (currentSelector[i].charAt(0) === ".") {
+          hasClass = true;
+          classMatch = false;
+          for (let j = 0; j < currentElement.classList.length; j++) {
+            if (currentElement.classList[j] === currentSelector[i].slice(1)) {
+              classMatch = true;
+              break;
+            }
+          }
+        } else {
+          hasTag = true;
+          if (currentElement.tagName.toLowerCase() === currentSelector[i]) {
+            tagMatch = true;
+          }
+        }
+      }
+
+      return (
+        ((hasId && idMatch) || !hasId) &&
+        ((hasClass && classMatch) || !hasClass) &&
+        ((hasTag && tagMatch) || !hasTag)
+      );
+    }
+
+    const ret = match("div #id.class", document.getElementById("id"));
+    console.log(ret);
+  </script>
+</html>
