@@ -55,15 +55,15 @@ background-color: blue;
   - [attr=value]
   - :hover
   - ::before
-- Compound Selector
+- Combined Selector
   - <Simple Selector><Simple Selector><Simple Selector>
   - `*` or `div` must be placed in front
 - Complicated Selector
-  - `<Compound Selector><sp><Compound Selector>`
-  - `<Compound Selector>">"<Compound Selector>`
-  - `<Compound Selector>"~"<Compound Selector>`
-  - `<Compound Selector>"+"<Compound Selector>`
-  - `<Compound Selector>"||"<Compound Selector>`
+  - `<Combined Selector><sp><Combined Selector>`
+  - `<Combined Selector>">"<Combined Selector>`
+  - `<Combined Selector>"~"<Combined Selector>`
+  - `<Combined Selector>"+"<Combined Selector>`
+  - `<Combined Selector>"||"<Combined Selector>`
 
   #### Pseudo Class
   - link/behaviour
@@ -86,4 +86,4 @@ background-color: blue;
 - ::before
 - ::after
 - ::first-line
-- ::first-letter
+s ::first-letter
