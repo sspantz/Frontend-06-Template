@@ -1,7 +1,9 @@
 学习笔记
 
 ## Normal Flow Layout
--
+- 收集盒进行
+- 计算盒在行中的排布
+- 计算行的排布
 
 - IFC
 - BFC
